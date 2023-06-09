@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-const Modal = () => {
-  const mode = 'Create'
+const Modal = ({mode, setShowModal}) => {
   const editMode = mode === 'Edit'? true : false
   const [data, setData] = useState({
     user_email: '',
@@ -11,8 +10,15 @@ const Modal = () => {
   })
 
 
-  const handleChange = () => {
-    console.log('changing')
+  const handleChange = (e) => {
+    console.log('changing', e)
+    const {name, value} = e.target
+
+    setData(data => ({
+      ...data,
+      [name] : value
+    }))
+    console.log(data)
   };
 
   return (
@@ -20,15 +26,15 @@ const Modal = () => {
       <div className="modal">
         <div className="form-title-container">
           <h3>Let's {mode} Your Task</h3>
-          <button>X</button>
+          <button onClick={() => setShowModal(false)}>X</button>
         </div>
         <form>
           <input
-          required
+          required 
           maxLength={30}
           placeholder=" Your Task Goes Here"
           name="title"
-          value={""}
+          value={data.title}
           onChange={handleChange}
           />
           <br/>
@@ -40,6 +46,7 @@ const Modal = () => {
           min='0'
           max='100'
           name="progress"
+          value={data.progress}
           onChange={handleChange}
           />
           <input className={mode} type="submit" />

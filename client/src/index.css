@@ -159,8 +159,13 @@ input {
 
 .modal .form-title-container button:active {
   color: rgb(255, 50, 50);
+  font-weight: bolder;
 }
 
+.modal .form-title-container button:hover {
+  color: rgb(255, 50, 50);
+  font-weight: bolder;
+}
 .modal form {
   display: flex;
   flex-direction: column;
