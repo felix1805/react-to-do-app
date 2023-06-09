@@ -1,7 +1,7 @@
 import Modal from "./Modal";
 import { useState } from "react";
 
-const ListHeader = ({ listName }) => {
+const ListHeader = ({ listName, getData }) => {
   const [showModal, setShowModal] = useState(false)
   const signOut = () => {
     console.log("Signing out...");
@@ -13,7 +13,7 @@ const ListHeader = ({ listName }) => {
         <button className="create" onClick={() => setShowModal(true)}>ADD NEW</button>
         <button className="signout" onClick={signOut}>SIGN OUT</button>
       </div>
-      {showModal && <Modal mode={'Create'} setShowModal={setShowModal} />}
+      {showModal && <Modal mode={'Create'} setShowModal={setShowModal} getData={getData} />}
     </div>
   )
 }

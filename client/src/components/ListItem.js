@@ -3,7 +3,7 @@ import TickIcon from './TickIcon';
 import { useState } from 'react';
 import Modal from './Modal';
 
-const ListItem = ({task}) => {
+const ListItem = ({task, getData}) => {
   const [showModal, setShowModal] = useState(false)
   return (
     <li className="list-item">
@@ -16,7 +16,7 @@ const ListItem = ({task}) => {
         <button className='edit' onClick={() => setShowModal(true)}>EDIT</button>
         <button className='delete'>DELETE</button>
       </div>
-      {showModal && <Modal mode={'Edit'} setShowModal={setShowModal}/>}
+      {showModal && <Modal mode={'Edit'} setShowModal={setShowModal} getData={getData} task={task}/>}
     </li>
   );
 }
