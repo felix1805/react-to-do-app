@@ -13,7 +13,7 @@ const ListItem = ({task, getData}) => {
       <ProgressBar/>
       </div>
       <div className='button-container'>
-        <button className='edit' onClick={() => setShowModal(true)}>EDIT</button>
+        <button className='Edit' onClick={() => setShowModal(true)}>EDIT</button>
         <button className='delete'>DELETE</button>
       </div>
       {showModal && <Modal mode={'Edit'} setShowModal={setShowModal} getData={getData} task={task}/>}

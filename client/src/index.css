@@ -30,17 +30,17 @@ body {
   font-size: 10px;
 }
 
-.edit {
+.Edit {
   border: 1.5px solid rgb(141, 181, 145);
   color: rgb(141, 181, 145);
   text-transform: uppercase;
 }
 
-.edit:hover {
+.Edit:hover {
   background-color: rgb(182, 223, 186);
 }
 
-.edit:active {
+.Edit:active {
   color: rgb(255, 255, 255);
   background-color: rgb(141, 181, 145);
 }
