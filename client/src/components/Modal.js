@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-const Modal = ({mode, setShowModal, getData, task}) => {
-  const editMode = mode === 'Edit'? true : false
+const Modal = ({ mode, setShowModal, getData, task }) => {
+  const editMode = mode === 'Edit' ? true : false
   const [data, setData] = useState({
     user_email: editMode ? task.user_email : 'felix@test.com',
     title: editMode ? task.title : null,
@@ -12,9 +12,9 @@ const Modal = ({mode, setShowModal, getData, task}) => {
   const postData = async (e) => {
     e.preventDefault()
     try {
-     const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos`, {
+      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos`, {
         method: 'POST',
-        headers: {'Content-type': 'application/json'},
+        headers: { 'Content-type': 'application/json' },
         body: JSON.stringify(data)
       })
       if (response.status === 200) {
@@ -22,8 +22,8 @@ const Modal = ({mode, setShowModal, getData, task}) => {
         setShowModal(false)
         getData()
       }
-    } catch (err){
-        console.error(err)
+    } catch (err) {
+      console.error(err)
     }
   }
 
@@ -47,11 +47,11 @@ const Modal = ({mode, setShowModal, getData, task}) => {
 
   const handleChange = (e) => {
     console.log('changing', e)
-    const {name, value} = e.target
+    const { name, value } = e.target
 
     setData(data => ({
       ...data,
-      [name] : value
+      [name]: value
     }))
     console.log(data)
   };
@@ -65,26 +65,26 @@ const Modal = ({mode, setShowModal, getData, task}) => {
         </div>
         <form>
           <input
-          required 
-          maxLength={30}
-          placeholder=" Your Task Goes Here"
-          name="title"
-          value={data.title}
-          onChange={handleChange}
+            required
+            maxLength={30}
+            placeholder=" Your Task Goes Here"
+            name="title"
+            value={data.title}
+            onChange={handleChange}
           />
-          <br/>
+          <br />
           <label for="range">Drag To Select Your Current Progress</label>
           <input
-          required
-          type="range"
-          id="range"
-          min='0'
-          max='100'
-          name="progress"
-          value={data.progress}
-          onChange={handleChange}
+            required
+            type="range"
+            id="range"
+            min='0'
+            max='100'
+            name="progress"
+            value={data.progress}
+            onChange={handleChange}
           />
-          <input className={mode} type="submit" onClick={editMode ? editData: postData} />
+          <input className={mode} type="submit" onClick={editMode ? editData : postData} />
         </form>
       </div>
     </div>

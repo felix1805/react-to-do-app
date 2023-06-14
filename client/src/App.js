@@ -7,7 +7,7 @@ const App = () => {
   const userEmail = 'felix@test.com'
   const [tasks, setTasks] = useState(null);
 
-  const authToken = true;
+  const authToken = false;
 
   const getData = async () => {
     try {
@@ -20,21 +20,25 @@ const App = () => {
     }
   }
 
-  useEffect(() => getData, []); 
+  useEffect(() => {
+    if (authToken) {
+      getData()
+    }
+  }, []);
 
   console.log(tasks);
 
   // Sort by date
-  const sortedTasks = tasks?.sort((a,b) => new Date(a.date) - new Date(b.date));
+  const sortedTasks = tasks?.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   return (
     <div className="app">
-      {!authToken && <Auth/>}
-      {authToken && 
-      <>
-      <ListHeader listName={"To Do List"} getData={getData} />
-      {sortedTasks?.map((task) => <ListItem key={task.id} task={task} getData={getData} />)}
-      </>}
+      {!authToken && <Auth />}
+      {authToken &&
+        <>
+          <ListHeader listName={"To Do List"} getData={getData} />
+          {sortedTasks?.map((task) => <ListItem key={task.id} task={task} getData={getData} />)}
+        </>}
     </div>
   );
 }

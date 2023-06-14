@@ -6,7 +6,7 @@ const cors = require("cors");
 const { v4: uuidv4 } = require('uuid');
 
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 
 // get all todo list items
 
@@ -34,7 +34,7 @@ app.post('/todos', async (req, res) => {
   } catch (err) {
     console.error(err)
   }
-})
+});
 
 // edit a TODO element
 app.put('/todos/:id', async (req, res) => {
@@ -46,7 +46,7 @@ app.put('/todos/:id', async (req, res) => {
   } catch (err) {
     console.error(err)
   }
-})
+});
 
 // delete a TODO element
 
@@ -58,7 +58,25 @@ app.delete('/todos/:id', async (req, res) => {
   } catch (err) {
     console.error(err)
   }
-})
+});
+
+app.post('/signup', async (req, res) => {
+  const {email, password} = req.params
+  try {
+
+  } catch (err) {
+    console.error(err)
+  }
+});
+
+app.post('/login', async (req, res) => {
+  const {email, password} = req.params
+  try {
+
+  } catch (err) {
+    console.error(err)
+  }
+});
 
 
 
