@@ -22,7 +22,7 @@ const ListItem = ({ task, getData }) => {
       <div className="info-container">
         <TickIcon />
         <p className="task-title">{task.title}</p>
-        <ProgressBar />
+        <ProgressBar progress={task.progress} />
       </div>
       <div className='button-container'>
         <button className='Edit' onClick={() => setShowModal(true)}>EDIT</button>
