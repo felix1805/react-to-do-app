@@ -1,33 +1,42 @@
-# Welcome to react-to-do-app 👋
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/felix1805/react-to-do-app/graphs/commit-activity)
-[![License: MIT](https://img.shields.io/github/license/felix1805/react-to-do-app)](https://github.com/felix1805/react-to-do-app/blob/master/LICENSE)
+# Express Todo App with Authentication
 
-> This is a TODO list app that works with an authentication system. A users email and password are saved using a singup modal, which then shows specific list items depending on which user has logged in.
+This is a simple backend API built with Express.js for a Todo App with authentication using JSON Web Token (JWT). 
 
-## Install
+## Features
 
-```sh
-npm install
-```
+- Get all todo list items for a specific user
+- Create a new TODO element with unique ID
+- Edit a TODO element
+- Delete a TODO element
+- Signup feature with hashed password
+- Login feature with password comparison
 
-## Author
+## Technology Stack
 
-👤 **Felix Petzsche**
+- Node.js
+- Express.js
+- PostgreSQL
+- CORS
+- UUID
+- Bcrypt
+- JSON Web Token
 
-* Website: https://felix1805.github.io/felixs-react-portfolio/
-* Github: [@felix1805](https://github.com/felix1805)
+## Usage
 
-## Show your support
+1. Clone the repository
+2. Install dependencies using `npm install`
+3. Change Postgres username and password in `db.js` and `docker-compose.yml` files
+4. Start Postgres database using `docker-compose up -d`
+5. Create database tables using `npm run migrate`
+6. Start the server using `npm run start` after you cd into both the client and server directories
+7. You can use REST client (like Postman) to test the endpoints.
 
-Give a ⭐️ if this project helped you!
+## Endpoints
 
+- GET /todos/:userEmail - Get all todo list items for a specific user
+- POST /todos - Create a new TODO element with unique ID
+- PUT /todos/:id - Edit a TODO element
+- DELETE /todos/:id - Delete a TODO element
+- POST /signup - Signup feature with hashed password
+- POST /login - Login feature with password comparison
 
-## 📝 License
-
-Copyright © 2023 [Felix Petzsche](https://github.com/felix1805).
-
-This project is [MIT](https://github.com/felix1805/react-to-do-app/blob/master/LICENSE) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
